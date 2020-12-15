@@ -9,6 +9,7 @@
                     console.log(content.data)
                     document.getElementById("gif").src=content.data[0].images.fixed_height_still.url;
                     document.getElementById("gif").props=content.data[0].images.downsized.url;
+                    document.getElementById('gif').style.display='block';
                 })
                 .catch((err)=>console.log(err));
             }
