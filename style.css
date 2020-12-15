@@ -53,4 +53,19 @@ body{
       height: 325px;
       width: 600px;
   }
-  
+  @media(max-width:768px){
+    .searchButton, .random{
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+       margin-top: 10px;
+       width: 50%;
+   }
+   image{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 10px;
+     width: 80%;
+ }
+}
