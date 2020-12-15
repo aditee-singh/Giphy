@@ -1,50 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>hello</title>
+        <link rel="stylesheet" href="style.css">
+        <title>Giphy</title>
     </head>
     <body>
-        <input id="demo"/>
-        <button onclick="myfunc()">Search</button>
-        <button onclick="random()">Random</button>
+        <input id="search"/>
+        <button onclick="searchFunction()">Search</button>
+        <button onclick="randomFunction()">Random</button>
     </br>
         <div>
-            <img id="idk" src="" prop="" onclick="Pause()"/>
+            <img id="gif" src="" prop="" onclick="playPause()"/>
         </div>
-        <script>
-            function myfunc(){
-                var gif=document.getElementById("demo").value;
-                var url="https://api.giphy.com/v1/gifs/search?api_key=EIkbwVRNCK8YVEfOVdMHG3ujfSCFjGVO&q="+gif+"&limit=1";
-                console.log(url);
-                fetch(url)
-                .then(response=>response.json())
-                .then(content=>{
-                    console.log(content.data)
-                    document.getElementById("idk").src=content.data[0].images.fixed_height_still.url;
-                    document.getElementById("idk").props=content.data[0].images.downsized.url;
-                })
-                .catch((err)=>console.log(err));
-            }
-            function Pause(){
-                var temp=document.getElementById("idk").src;
-                document.getElementById("idk").src=document.getElementById("idk").props;
-                document.getElementById("idk").props=temp;
-            }
-            function random() {
-                var url="https://api.giphy.com/v1/gifs/random?&api_key=dc6zaTOxFJmzC&limit=1";    
-                fetch(url)
-                .then(response=>response.json())
-                .then(content=>{
-                    console.log(content.data);
-                    document.getElementById("idk").src = content.data.images.fixed_height_still.url;
-	                document.getElementById("idk").props = content.data.images.downsized.url;
-  })
-  .catch((err) => alert(err));
-   
-}
-                
-
-            
-        </script>
+        <script src="script.js"></script>
     </body>
 </html>
