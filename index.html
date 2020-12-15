@@ -2,15 +2,20 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+        <script src="https://fonts.googleapis.com/css?family=Open+Sans"></script>
         <title>Giphy</title>
     </head>
     <body>
-        <input id="search"/>
-        <button onclick="searchFunction()">Search</button>
-        <button onclick="randomFunction()">Random</button>
+        <div class="search">
+            <input type="text" id="searchitem" class="searchTerm" placeholder="Search for a GIF"/>
+            <button class="searchButton" onclick="searchFunction()">
+                <i class="fa fa-search"></i>
+                <button class="random" onclick="randomFunction()">Random</button>
+        </div>
     </br>
         <div>
-            <img id="gif" src="" prop="" onclick="playPause()"/>
+            <img class="image" id="gif" src="" prop="" onclick="playPause()"/>
         </div>
         <script src="script.js"></script>
     </body>

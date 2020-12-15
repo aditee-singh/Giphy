@@ -1,6 +1,6 @@
 
             function searchFunction(){
-                var giphy_name=document.getElementById("search").value;
+                var giphy_name=document.getElementById("searchitem").value;
                 var url="https://api.giphy.com/v1/gifs/search?api_key=EIkbwVRNCK8YVEfOVdMHG3ujfSCFjGVO&q="+giphy_name+"&limit=1";
                 console.log(url);
                 fetch(url)
