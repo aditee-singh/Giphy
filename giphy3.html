@@ -1,0 +1,203 @@
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/giphy.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+  <style>
+      body{
+          background-color: black;
+          color: blanchedalmond;
+          font-family: 'Roboto';
+      }
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+       
+        }
+      .left-right {
+        display: flex;
+        margin-left: 10px;
+        margin-right: 10px;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse col-md-9 col-md-offset-1">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="giphy3.html">
+                <img src="img/giphyicon.jpg" width="50" height="50" style="float: left; margin-top: -10px;" alt="">
+                <span class="brand_name text-white" style="float: left;">GIPHY</span>
+            </a>            
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav" style="font-weight: bolder; font-size: 15px; align-items: baseline" >
+                <li><a href="https://giphy.com/reactions">Reactions</a><div class="under"></div></li>
+                <li><a href="https://giphy.com/entertainment">Entertainment</a><div class="under"></div></li>
+                <li><a href="https://giphy.com/stickers">Stickers</a><div class="under"></div></li>
+                <li><a href="https://giphy.com/artists">Artists</a><div class="under"></div></li>
+                <!-- <li><a href="#">Icon</a></li> -->
+                <li class="nav_button"><a href="https://giphy.com/upload">Upload</a></li>
+                <li class="nav_button"><a href="https://giphy.com/create">Create</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><span class="eyes"></span></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">aditee
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Favorites</a></li>
+                        <li><a href="#">Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid col-md-9 col-md-offset-1">
+
+
+    <div class="row">   
+     
+            <div class="form-group left-right">
+                <input type="text" class="form-control" id="searchitem" >
+                <button id="searchButton" class="searchButton" onclick="searchFunction()">
+                    <i class="fa fa-search"></i>
+                <button id="randomButton" class="random" onclick="randomFunction()">Random</button>
+            </div>
+        
+    </div>
+
+    <div class="row">    
+       
+            <img src="img/giphy.gif" alt="" class="center" style="max-width: 100%;">     
+       
+    </div>
+
+
+    <div class="row">
+            <div class="left-right">
+                <h3 style="color: white; font-weight: bold;"> Trending </h3>
+                <span style="color: gray; font-weight: bold;"> All The Gifs   > </span>
+            </div>
+    </div>
+
+    <div class="row">
+        <div class="owl-carousel trend">
+            <div class="item"><img src="img/trend.gif" style="width: 100%;"></div>
+            <div class="item"><img src="img/trend.gif" style="width: 100%;"></div>
+            <div class="item"><img src="img/trend.gif" style="width: 100%;"></div>
+            <div class="item"><img src="img/trend.gif" style="width: 100%;"></div>
+        </div>
+        
+    </div>
+        
+    <div class="row">
+        <div class="left-right">
+            <h3 style="color: white; font-weight: bold;">Artists</h3>
+            <span style="color: gray;">All Giphy Artists ></span> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="owl-carousel artist">
+            <div class="item"><img src="img/artist.gif" width="100%"></div>
+            <div class="item"><img src="img/artist.gif" width="100%"></div>
+            <div class="item"><img src="img/artist.gif" width="100%"></div>
+            <div class="item"><img src="img/artist.gif" width="100%"></div>
+        </div>
+    </div>
+    <div class="row">
+        <h3 style="color: white; font-weight: bold;">Videos</h3> 
+    </div>
+    <div class="row">
+        <div class="infinite">
+            <img src="img/trend.gif">
+            <img src="img/artist.gif">
+            <img src="img/trend.gif">
+            <img src="img/artist.gif">
+            <img src="img/trend.gif">
+            <img src="img/artist.gif">
+            <img src="img/trend.gif">
+            <img src="img/artist.gif">
+            <img src="img/trend.gif">
+            <img src="img/artist.gif">
+            <img src="img/trend.gif">
+            <img src="img/artist.gif">
+            <img src="img/trend.gif">
+            <img src="img/artist.gif">
+        </div>
+    </div>
+</div>
+
+    
+<script src="jquery.min.js"></script>
+<script src="owlcarousel/owl.carousel.min.js"></script>
+<script>
+  $('.trend').owlCarousel({
+            margin: 10,
+            nav: true,
+            navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+            onTranslated: function (event){
+                $('.trend')
+                .trigger('add.owl.carousel', ["<div class='item'><img src='img/trend.gif' style='width:100%'></div>"])
+                .trigger('refresh.owl.carousel');
+            }
+        });
+    $('.artist').owlCarousel({
+        margin:10,
+        nav:true,
+        navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+        onTranslated:function(event){
+            $('.artist')
+            .trigger('add.owl.carousel',["<div class='item'><img src='img/artist.gif' style='width:100%'></div>"])
+            .trigger('refresh.owl.carousel');
+        }
+    });
+</script>
+<script> 
+
+$(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+
+        for ( var i = 0; i < 15; i+=1)
+        $("<div class='col-md-2'><img src='img/trend.gif' style='width:100%'" + "' ></div>").appendTo(".infinite");
+        
+    }
+});
+document.getElementById("searchitem").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("searchButton").click();
+    }
+});
+function searchFunction(){
+    var text = document.getElementById('searchitem').value;
+    console.log(text);
+    if(text.length>0)
+    {
+        location.replace("giphy4.html?search="+text);
+    }
+}
+</script>
+
+    
+</body>
+</html>
