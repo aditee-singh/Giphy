@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Giphy</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/giphy.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>      
+</head>
+<body>
+    <nav class="navbar navbar-inverse col-md-9 col-md-offset-1">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="giphy3.html">
+                    <img src="img/giphyicon.jpg" width="50" height="50" style="float: left; margin-top: -10px;" alt="">
+                    <span class="brand_name text-white" style="float: left;">GIPHY</span>
+                </a>            
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav" style="font-weight: bolder; font-size: 15px; align-items: baseline" >
+                    <li><a href="https://giphy.com/reactions">Reactions</a><div class="under"></div></li>
+                    <li><a href="https://giphy.com/entertainment">Entertainment</a><div class="under"></div></li>
+                    <li><a href="https://giphy.com/stickers">Stickers</a><div class="under"></div></li>
+                    <li><a href="https://giphy.com/artists">Artists</a><div class="under"></div></li>
+                    <!-- <li><a href="#">Icon</a></li> -->
+                    <li class="nav_button"><a href="https://giphy.com/upload">Upload</a></li>
+                    <li class="nav_button"><a href="https://giphy.com/create">Create</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><span class="eyes"></span></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">aditee
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="#">Favorites</a></li>
+                            <li><a href="#">Log out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid col-md-9 col-md-offset-1">
+
+
+    <div class="row">   
+     
+        <div class="form-group left-right">
+            <input type="text" class="form-control" id="searchitem"placeholder="Search for GIFs" >
+            <button id="searchButton" class="searchButton" onclick="searchFunction()">
+                <i class="fa fa-search"></i>
+            </button>
+            <div class="randomdiv">
+                <button id="randomButton" class="random" onclick="randomFunction()">Random</button>
+            </div>                    
+        </div>
+        
+    </div>
+
+    <div class="row">    
+       
+            <img src="img/giphy.gif" alt="" class="center" style="max-width: 100%;">     
+       
+    </div>
+    <div class="row">
+        <div id="wait" style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;margin-left:400px;margin-top:50px;padding:2px;"><img src='img/loader_img.gif' width="100" height="100" /><br>Loading..</div>
+
+    </div>
+
+    <div class="row">
+        <div class="infinite" id="infinite" style="margin-top: 50px;">
+            
+        </div>
+        
+    </div>
+</div>
+
+    
+<script src="js/giphy4.js"></script>
+<script> 
+
+$(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+        var giphy_name=document.getElementById('infinite').searched;
+        var skip_gif = document.getElementById('infinite').count;
+        for ( var i = 0; i < 15; i+=1){
+            if(document.getElementById('infinite').abc=="1")
+            addDiv(parseInt(parseInt(i)+parseInt(skip_gif)));
+        }
+
+        if(giphy_name.length>0){
+            var url="https://api.giphy.com/v1/gifs/search?api_key=EIkbwVRNCK8YVEfOVdMHG3ujfSCFjGVO&q="+giphy_name+"&limit=15&offset="+skip_gif;
+            console.log(url);
+            fetch(url)
+            .then(response=>response.json())
+            .then(content=>{     
+                console.log(content.data)
+                for ( var i = 0; i < 15; i+=1){
+                    addSrc(content, parseInt(parseInt(i)+parseInt(skip_gif)), i);
+                }
+                document.getElementById("searchButton").disabled = false;
+                document.getElementById("randomButton").disabled = false;
+                document.getElementById('infinite').count=skip_gif+15;
+                document.getElementById('searchitem').value="";
+            })
+            .catch((err)=>console.log(err));
+            }    
+        }
+            
+    
+});
+var main_url = location.href;
+var array_url = main_url.split("=");
+if(array_url.length==2){
+    document.getElementById('searchitem').value = array_url[1];
+    document.getElementById('searchButton').click();
+}
+</script>
+
+    
+</body>
+</html>
